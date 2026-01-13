@@ -1,0 +1,8 @@
+{
+  "name": "final aaarogya saathi",
+  "description": "A dual-portal healthcare application connecting patients and doctors. Patients receive immediate AI-driven preliminary advice for symptoms while waiting for doctor review and official prescriptions.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
