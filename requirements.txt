@@ -1,0 +1,17 @@
+# Web Framework & Server
+fastapi==0.110.0
+uvicorn==0.28.0
+python-multipart==0.0.9
+
+# Database / Queue
+redis==5.0.3
+
+# Quantum Token Generation
+qiskit==1.0.2
+qiskit-aer==0.14.0.1
+
+# AI Integration (Assuming Gemini or similar for multi-modal analysis)
+google-genai
+
+# Environment Variables (Highly recommended for API keys)
+python-dotenv==1.0.1
