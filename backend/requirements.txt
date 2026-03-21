@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+redis[asyncio]
+qiskit
+qiskit-aer
+google-generativeai
+google-api-core
+Pillow
+twilio
+websockets

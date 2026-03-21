@@ -1,0 +1,250 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Utility ── */
+.hidden           { display: none !important; }
+.sr-only          {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
+.success-msg      { color: #27ae60; font-weight: bold;
+                    font-size: 14px; margin-top: 8px; }
+.fallback-warning { color: #e74c3c; font-size: 14px; margin-top: 8px; }
+.none-flagged     { opacity: 0.5; }
+.empty-queue      { text-align: center; padding: 30px; opacity: 0.6; }
+
+/* ── Base ── */
+body {
+  font-family: sans-serif;
+  background: #f4f7f6;
+  padding: 30px;
+  text-align: center;
+}
+h1 { margin-bottom: 8px; color: #2c3e50; }
+p  { color: #666; margin-bottom: 16px; }
+
+#langToggle {
+  float: right;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+/* ── Container ── */
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: left;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin: 15px 0 5px;
+  color: #2c3e50;
+}
+
+input[type="text"],
+input[type="tel"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+textarea { resize: vertical; }
+
+/* ── Submit button ── */
+.btn-submit {
+  padding: 12px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+.btn-submit:hover    { background: #2980b9; }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Attendant box ── */
+.highlight-box {
+  background: #fdf2e9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #e67e22;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.highlight-box input { width: auto; margin: 0; }
+.highlight-box label { margin: 0; font-weight: normal; }
+
+/* ── Radio group ── */
+.radio-group        { margin-bottom: 15px; font-size: 15px; }
+.radio-group input  { width: auto; margin-right: 5px; }
+.radio-group label  {
+  display: inline;
+  font-weight: normal;
+  margin-right: 15px;
+}
+
+/* ── ABHA box ── */
+.abha-box {
+  background: #e8f8f5;
+  border: 1px solid #1abc9c;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+.abha-box h3 {
+  color: #16a085;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.abha-box button {
+  padding: 10px;
+  background: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 6px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.abha-box button:hover     { background: #16a085; }
+.abha-box button:disabled  { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Mic ── */
+.mic-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin: 10px 0 20px;
+}
+.mic-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: #3498db;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.mic-btn.recording { background: #e74c3c; animation: pulse 1.5s infinite; }
+.mic-btn.saved     { background: #27ae60; }
+.mic-text          { font-weight: bold; color: #555; font-size: 14px; }
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(231,76,60,0.7); }
+  70%  { box-shadow: 0 0 0 15px rgba(231,76,60,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(231,76,60,0);   }
+}
+
+/* ── Result box ── */
+.result-box {
+  background: #e8f8f5;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid #1abc9c;
+}
+.result-box h3 { color: #27ae60; margin-bottom: 10px; }
+.result-box a  {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: #2c3e50;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+/* ── Doctor dashboard ── */
+body.dashboard {
+  background: #2c3e50;
+  color: white;
+  text-align: left;
+  padding: 30px;
+}
+body.dashboard h1 { color: white; }
+body.dashboard p  { color: #bdc3c7; }
+
+.dash-header   { margin-bottom: 24px; }
+.last-updated  { font-size: 13px; opacity: 0.6; margin-right: 16px; }
+
+.ws-status {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.ws-status.connected    { background: #27ae60; color: white; }
+.ws-status.disconnected { background: #e74c3c; color: white; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #34495e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+th {
+  padding: 15px;
+  background: #c0392b;
+  text-align: left;
+  font-size: 14px;
+}
+td {
+  padding: 15px;
+  border-bottom: 1px solid #4a6278;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.token-cell         { font-weight: bold; font-size: 16px; font-family: monospace; }
+.risk-cell          { font-weight: bold; font-size: 30px; text-align: center; }
+.risk-cell.critical { color: #e74c3c; }
+.risk-cell.urgent   { color: #e67e22; }
+.risk-cell.stable   { color: #27ae60; }
+.summary-cell       { line-height: 1.6; max-width: 280px; }
+.abnormal-cell ul   { padding-left: 16px; }
+.abnormal-cell li   { margin-bottom: 4px; }
+
+.btn-fhir {
+  padding: 8px 14px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+.btn-fhir:hover { background: #2980b9; }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Portal — Quantum Triage</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <select id="langToggle" title="Select language" onchange="switchLanguage()">
+    <option value="en">English</option>
+    <option value="hi">हिंदी</option>
+  </select>
+
+  <h1 id="titleText">Patient Portal</h1>
+  <p id="subText">Upload your report and tell us your symptoms.</p>
+
+  <div class="container">
+
+    <div class="highlight-box">
+      <input type="checkbox" id="attendant_mode">
+      <label for="attendant_mode" id="lblAttendant">
+        I am an attendant filling this on behalf of the patient
+      </label>
+    </div>
+
+    <label id="lblConsent">
+      Do you want the doctor to see your past medical records?
+    </label>
+    <div class="radio-group">
+      <input type="radio" name="consent" id="consent_yes"
+             value="yes" onchange="toggleAbhaBox()">
+      <label for="consent_yes" id="lblConsentYes">Yes</label>
+      <input type="radio" name="consent" id="consent_no"
+             value="no" onchange="toggleAbhaBox()" checked>
+      <label for="consent_no" id="lblConsentNo">No</label>
+    </div>
+
+    <div class="abha-box hidden" id="abhaContainer">
+      <h3 id="lblAbhaTitle">Link Past Records</h3>
+      <div id="abhaInputArea">
+        <label for="abha_id" class="sr-only">ABHA ID</label>
+        <input type="text" id="abha_id"
+               placeholder="Enter 14-digit ABHA ID"
+               title="Enter your ABHA ID">
+        <label for="patient_phone" class="sr-only">Mobile number</label>
+        <input type="tel" id="patient_phone"
+               placeholder="Mobile number e.g. +919876543210"
+               title="Enter mobile number with country code">
+        <button type="button" id="btnSendOtp" onclick="sendOtp()">
+          Send Secure OTP
+        </button>
+      </div>
+      <div class="hidden" id="otpArea">
+        <label for="otp_code" class="sr-only">OTP code</label>
+        <input type="text" id="otp_code"
+               placeholder="Enter 6-digit OTP"
+               title="Enter the OTP sent to your phone">
+        <button type="button" id="btnVerifyOtp" onclick="verifyOtp()">
+          Verify & Link
+        </button>
+      </div>
+      <p class="hidden success-msg" id="abhaSuccessMsg">
+        Records linked securely (Expires in 2 hrs)
+      </p>
+    </div>
+
+    <label for="reportFile" id="lblReport">
+      1. Upload Medical Report (Image):
+    </label>
+    <input type="file" id="reportFile" accept="image/*"
+           title="Upload your medical report image">
+
+    <label for="symptomsBox" id="lblSymptoms">
+      2. Write Symptoms (Optional):
+    </label>
+    <textarea id="symptomsBox" rows="3"
+              placeholder="e.g., I have a fever..."
+              title="Describe your symptoms"></textarea>
+
+    <label id="lblAudio">3. Voice Note (Optional):</label>
+    <div class="mic-container">
+      <button type="button" class="mic-btn" id="micButton"
+              onclick="toggleRecording()"
+              title="Click to record voice note">🎤</button>
+      <span class="mic-text" id="micText">Click to record</span>
+    </div>
+
+    <button class="btn-submit" id="btnSubmit" onclick="submitForm()">
+      Submit for Triage
+    </button>
+
+    <div id="resultBox" class="result-box hidden">
+      <h3>Submitted Successfully</h3>
+      <p>Your secure token: <strong id="tokenDisplay"></strong></p>
+      <p id="riskDisplay"></p>
+      <p class="fallback-warning hidden" id="fallbackWarning">
+        AI unavailable — manual review assigned. Token still valid.
+      </p>
+      <a href="doctor.html">View Doctor Dashboard</a>
+    </div>
+
+  </div>
+
+  <script src="js/patient.js"></script>
+</body>
+</html>

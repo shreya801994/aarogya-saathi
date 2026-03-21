@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Dashboard — Quantum Triage</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard">
+
+  <div class="dash-header">
+    <h1>Doctor Dashboard</h1>
+    <p>Live triage queue — updates instantly when new patients arrive</p>
+    <span id="lastUpdated" class="last-updated"></span>
+    <span id="wsStatus" class="ws-status disconnected">Connecting...</span>
+  </div>
+
+  <table id="triageTable">
+    <thead>
+      <tr>
+        <th>Token</th>
+        <th>Risk</th>
+        <th>Abnormalities</th>
+        <th>Clinical Summary</th>
+        <th>FHIR Records</th>
+      </tr>
+    </thead>
+    <tbody id="queueBody">
+      <tr>
+        <td colspan="5" class="empty-queue">
+          Connecting to triage queue...
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
