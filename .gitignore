@@ -1,2 +1,20 @@
-.env 
-__pycache__/ 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment files
+.env
+backend/.env
+
+# Virtual environment
+venv/
+env/
+
+# VS Code
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
